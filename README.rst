@@ -1,20 +1,10 @@
-SolarWolf - http://pygame.org/shredwheat/solarwolf/index.shtml
-by Pete "ShredWheat" Shinners" - pete@shinners.org
+김병훈 수정사항
 
-SolarWolf is an action/arcade game written entirely in Python.
-It is free and open source, released under the LGPL license.
+1. 게임중 라운드 표시
+제 버전에선 한글패치가 안된 버전이라 우선 Stage1,2,3 등으로 출력되게 했습니다
+또 stage0은 출력된 후 사라지지 않아서 0은 뜨지않도록 했습니다.
+2. 게임 진행도 표시 
+HUD를 수정해서 바 형태로 게임 진행도를 표시하게 했습니다.
 
-The game is originally based of one of my childhood favorites,
-SolarFox on the Atari 2600.
-
-The point of the game is to scramble through 60 levels 
-collecting space boxes. Each level gets is harder than 
-the previous. Obstacles like bullets, mines, and asteroids
-cover your every move. Beat the Skip timer and grab the
-powerups for your only chance.
-
-Solarwolf runs on nearly every platform. Windows, Mac OSX, Linux,
-BeOS, and a large variety of Unix platforms.
-
-
-Pygame Powered
+점수는 이 게임에 점수 시스템이 없어서 우선 추가하지 못했습니다. 
+점수 시스템은 어떤식으로 점수를 매기게할지 한번 논의해봐야 할것같습니다!
