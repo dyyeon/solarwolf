@@ -140,7 +140,7 @@ def __pygamebox(title, message):
         pygame.font.init()
         screen = pygame.display.set_mode((460, 140))
         pygame.display.set_caption(title)
-        font = pygame.font.Font(None, 18)
+        font = pygame.font.Font(None, 15)   #----------- 폰트 18에서 15로 변경 -----------
         foreg, backg, liteg = (0, 0, 0), (180, 180, 180), (210, 210, 210)
         ok = font.render('Ok', 1, foreg, liteg)
         okbox = ok.get_rect().inflate(200, 10)

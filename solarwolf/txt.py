@@ -1,6 +1,6 @@
 """text and font classes, helps everyone to text"""
 
-import pygame, pygame.font, gfx
+import pygame, pygame.font, gfx, os
 
 #old versions of SysFont were buggy
 if pygame.ver <= '1.6.1':
@@ -17,14 +17,15 @@ def initialize():
     pygame.font.init()
     return 1
 
+font_path = "NanumGothic-Bold.ttf"   #한글이 지원돠는 TTF 폰트 파일 경로
 
 class Font:
     def __init__(self, name, size, bold=0, italic=0):
-        val = name, size
+        val = font_path, size
         if val in FontPool:
             font = FontPool[val]
         else:
-            font = SysFont(name, size, bold, italic)
+            font = pygame.font.Font(font_path, size)
             FontPool[val] = font
         self.font = font
         if size >= 20:

@@ -122,8 +122,8 @@ class GameMenu:
         if not winners:
             return None
 
-        textfont = txt.Font(None, 24)
-        smallfont = txt.Font(None, 16)
+        textfont = txt.Font(None, 15)   #----------- 폰트 24에서 15로 변경 -----------
+        smallfont = txt.Font(None, 10)  #----------- 폰트 16에서 10로 변경 -----------
         count = min(4, len(players.winners))
         size = count*160, 70
         img = pygame.Surface(size)

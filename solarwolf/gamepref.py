@@ -10,12 +10,12 @@ import gameplay
 
 
 Prefs = {
-"music": ("Off", "Low", "Normal"),
-"volume": ("Off", "Low", "Normal"),
-"display": ("Window", "Fullscreen"),
-"comments": ("None", "Some", "Chatty"),
-"help": ("Full Screens", "Quick Comments"),
-"thruster": ("Normal", "Inverted"),
+"music": ("끄기", "작게", "크게"),
+"volume": ("끄기", "작게", "크게"),
+"display": ("창화면", "전체화면"),
+"comments": ("없음", "일부", "전체"),
+"help": ("넵", "아니요"),
+"thruster": ("보통", "반전"),
 }
 
 
@@ -58,8 +58,8 @@ def load_game_resources():
     img = gfx.load('menu_setup_on.png')
     images.append((img, img.get_rect().move(20, 20)))
 
-    namefont = txt.Font(None, 42)
-    valuefont = txt.Font(None, 36)
+    namefont = txt.Font(None, 35)   #----------- 폰트 42에서 35로 변경 -----------
+    valuefont = txt.Font(None, 30)  #----------- 폰트 36에서 30로 변경 -----------
 
     snd.preload('select_choose', 'select_move', 'delete')
 

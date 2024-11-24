@@ -26,13 +26,13 @@ def load_game_resources():
     images.append((img, img.get_rect()))
 
     bgd = 0, 0, 0
-    font = txt.Font(None, 50)
+    font = txt.Font(None, 30)   #----------- 폰트 50에서 30로 변경 -----------
     t = font.text((220, 210, 180), 'Select A Player:', (gfx.rect.centerx, 30))
     images.append(t)
 
-    namefont = txt.Font(None, 46)
-    textfont = txt.Font(None, 26)
-    smallfont = txt.Font(None, 16)
+    namefont = txt.Font(None, 30)   #----------- 폰트 46에서 30로 변경 -----------
+    textfont = txt.Font(None, 15)   #----------- 폰트 26에서 15로 변경 -----------
+    smallfont = txt.Font(None, 13)  #----------- 폰트 16에서 13로 변경 -----------
 
     snd.preload('select_choose', 'select_move', 'delete')
 
