@@ -19,6 +19,34 @@ def load_game_resources():
     snd.preload('boxhot', 'levelfinish', 'shoot', 'whip', 'klank2')
     snd.preload('spring', 'flop')
 
+class Box:
+    def __init__(self, x, y, is_bonus=False):
+        self.x = x
+        self.y = y
+        self.is_bonus = is_bonus  # 보너스 상자 여부
+        self.image = pygame.image.load("box_image.png")  # 일반 상자 이미지
+        if self.is_bonus:
+            self.image = pygame.image.load("bonus_box_image.png")  # 보너스 상자 이미지
+
+    def collect(self, player):
+        if self.is_bonus:
+            player.score += 500  # 보너스 점수 추가
+            # 보너스 효과 처리 예시
+            player.activate_bonus_effect()  # 보너스 효과 함수 추가
+        else:
+            player.score += 100  # 일반 상자 점수
+        self.destroy()  # 상자 제거
+
+#보너스 상자 생긴게 원형이게        
+class BonusBox(Box):
+    def __init__(self, x, y):
+        # 원형 보너스 상자
+        self.x = x
+        self.y = y
+        self.is_bonus = True
+        self.image = pygame.Surface((50, 50), pygame.SRCALPHA)  # 투명 배경
+        pygame.draw.circle(self.image, (255, 223, 0), (25, 25), 25)  # 원형 이미지
+
 
 class GamePlay:
     def __init__(self, prevhandler):
@@ -357,6 +385,20 @@ class GamePlay:
         for b in self.guardobjs:
             b.nofire()
 
+    def spawn_bonus_box(self):
+        x = random.randint(0, SCREEN_WIDTH)
+        y = random.randint(0, SCREEN_HEIGHT)
+        is_bonus = random.choice([True, False])  # 보너스 상자 확률
+                
+        if is_bonus:
+             # 보너스 상자 생성
+            bonus_box = objbox.Box(x, y, is_bonus=True)
+            self.boxobjs.append(bonus_box)
+        else:
+            # 일반 상자 생성
+            box = objbox.Box(x, y)
+            self.boxobjs.append(box)
+
 
     def playerdie_tick(self):
         self.poptime -= 1
@@ -689,6 +731,3 @@ class GamePlay:
                 nexthandler = gamename.GameName(nexthandler)
 
         game.handler = nexthandler
-
-
-
