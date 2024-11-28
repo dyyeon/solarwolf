@@ -7,7 +7,7 @@ import game, gfx, snd, txt
 import gameplay, gamemenu, players
 
 
-
+#--- 한글로 변경 ---
 cheer_korean = (
     '축하합니다!',
     '당신은 게임을 클리어했습니다!',

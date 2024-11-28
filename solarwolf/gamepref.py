@@ -8,7 +8,7 @@ import input
 import score
 import gameplay
 
-
+#--- 한글로 변경 ---
 Prefs = {
 "music": ("끄기", "작게", "크게"),
 "volume": ("끄기", "작게", "크게"),
@@ -58,6 +58,7 @@ def load_game_resources():
     img = gfx.load('menu_setup_on.png')
     images.append((img, img.get_rect().move(20, 20)))
 
+# 설정 폰트
     namefont = txt.Font(None, 35)   #----------- 폰트 42에서 35로 변경 -----------
     valuefont = txt.Font(None, 30)  #----------- 폰트 36에서 30로 변경 -----------
 
@@ -72,7 +73,7 @@ class GamePref:
         self.prefs = []
         for n,v in list(Prefs.items()):
             self.prefs.append((n,v))
-        self.prefs.append(("", ("Return To Menu",)))
+        self.prefs.append(("", ("메뉴로 돌아가기",)))   #--- 메뉴로 돌아가기 한글로 변경---
 
         self.done = 0
         self.aborted = 0

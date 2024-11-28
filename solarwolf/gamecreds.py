@@ -27,7 +27,8 @@ images = []
 def load_game_resources():
     global fonts, images
     fontname = None
-    fonts.append((txt.Font(fontname, 25), (50, 120, 100))) #----------- 폰트 30에서 25로 변경 -----------
+    # 제작진 이름 폰트
+    fonts.append((txt.Font(fontname, 40), (50, 120, 100))) #----------- 폰트 30에서 25로 변경 -----------
     fonts.append((txt.Font(fontname, 30), (100, 100, 250))) #----------- 폰트 44에서 30로 변경 -----------
 
     img = gfx.load('oldsolarfox.png')
@@ -51,7 +52,7 @@ def load_game_resources():
     r = img.get_rect().move(20, 5)
     images.append((img, r))
 
-    font = txt.Font(None, 15) # ------------ 폰트 변경 안함 --------------
+    font = txt.Font(None, 13) # ------------ licenseinfo 폰트 15에서 13으로 변경 --------------
     top = 560
     mid = 400
     for l in licenseinfo:

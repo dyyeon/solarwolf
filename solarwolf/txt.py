@@ -20,6 +20,7 @@ def initialize():
 font_path = "NanumGothic-Bold.ttf"   #한글이 지원돠는 TTF 폰트 파일 경로
 
 class Font:
+    #--- __init__ 변경사항 있음 ---
     def __init__(self, name, size, bold=0, italic=0):
         val = font_path, size
         if val in FontPool:
@@ -120,9 +121,6 @@ class Font:
         img.set_colorkey((0,0,0), pygame.RLEACCEL)
         r = self._positionrect(img, center, pos)
         return [img, r]
-
-
-
 
     def textbox(self, color, text, width, bgcolor, topmargin=6):
         sidemargin = 6
