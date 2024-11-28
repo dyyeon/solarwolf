@@ -3,6 +3,7 @@
 import pygame
 from pygame.locals import *
 import game, gfx, math
+<<<<<<< HEAD
 from random import randint
 
 
@@ -19,11 +20,15 @@ def load_game_resources():
     img_10 = gfx.load('score_10.png')
     img_50 = gfx.load('score_50.png')
 
+=======
+from pygame.font import Font
+>>>>>>> parent of bf8521a (translate finish)
 
 def render(score):
     imgs = []
 
     if score <= 0:
+<<<<<<< HEAD
         out = pygame.Surface(img_1.get_size()).convert()
         out.set_colorkey(0, RLEACCEL)
         return out
@@ -56,6 +61,17 @@ def render(score):
     width = 0
     for i in imgs:
         width += i.get_width()
+=======
+        # 기존 코드와 동일한 크기의 빈 Surface 생성
+        empty_surface = pygame.Surface((30, 36))  # 크기는 적절히 조정 가능
+        empty_surface.set_colorkey(0, RLEACCEL)
+        return empty_surface
+    # 기본 폰트 사용
+    font = Font(None, 36)
+    
+    # '[숫자]단계' 형식으로 텍스트 생성
+    level_text = f"Stage {score}"
+>>>>>>> parent of bf8521a (translate finish)
     
     out = pygame.Surface((width, img_1.get_height())).convert()
     pos = 0
