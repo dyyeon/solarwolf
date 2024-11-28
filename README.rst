@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <수정사항>
 
 -플레이어 정지
@@ -19,3 +20,7 @@
 (menu_creds_on.png, menu_news_on.png, menu_quit_on.png, menu_setup_on.png, menu_start_on.png,/ ..._off.png/ ship-big.png) -> 새로 만든 png
 (gamemenu.py/ gamepref.py/ gamestart.py/ gamewin.py/ txt.py/ gamecreds.py/ gamenews.py)
 (NanumGothic-Bold.ttf) -> 한글 폰트 추가
+=======
+게임 속에서 나오는 부분과 설정에 나오는 일부분을 한글패치 완성을 했는데 .png 파일(즉, 처음 시작할 때 strat, creds,,, )을 해결중이다. 
+그리고 새 게임 끝나고 이름을 적을 때 한글로 저장할 수 있는지 수정중에 있습니다. 
+>>>>>>> lsb
