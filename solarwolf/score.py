@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-import game, gfx, math
+import game, gfx, math, txt
 from pygame.font import Font
 
 def render(score):
@@ -10,11 +10,13 @@ def render(score):
         empty_surface = pygame.Surface((30, 36))  # 크기는 적절히 조정 가능
         empty_surface.set_colorkey(0, RLEACCEL)
         return empty_surface
-    # 기본 폰트 사용
-    font = Font(None, 36)
     
+    # 한글 폰트 사용
+    font = Font(txt.font_path, 20)  #--- 단계 폰트를 36에서 20로 변경 ---
+    
+
     # '[숫자]단계' 형식으로 텍스트 생성
-    level_text = f"Stage {score}"
+    level_text = f"단계 {score}"
     
     # 흰색으로 텍스트 렌더링
     text_surface = font.render(level_text, True, (255, 255, 255))
