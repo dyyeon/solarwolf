@@ -16,7 +16,7 @@ def render(score):
     
 
     # '[숫자]단계' 형식으로 텍스트 생성
-    level_text = f"단계 {score}"
+    level_text = f"{score} 단계"
     
     # 흰색으로 텍스트 렌더링
     text_surface = font.render(level_text, True, (255, 255, 255))

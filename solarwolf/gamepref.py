@@ -73,7 +73,7 @@ class GamePref:
         self.prefs = []
         for n,v in list(Prefs.items()):
             self.prefs.append((n,v))
-        self.prefs.append(("", ("메뉴로 돌아가기",)))   #--- 메뉴로 돌아가기 한글로 변경---
+        self.prefs.append(("", ("메뉴로 돌아가기",)))   #--- 설정에서 메뉴로 돌아가기 한글로 변경---
 
         self.done = 0
         self.aborted = 0
