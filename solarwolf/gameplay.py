@@ -112,6 +112,8 @@ class GamePlay:
                 self.player.cmd_right()
             elif i.translated == input.PRESS:
                 self.player.cmd_turbo(1)
+            elif i.translated == input.STOP:
+                self.player.cmd_stop()
 
 
     def event(self, e):

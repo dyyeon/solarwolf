@@ -1,7 +1,6 @@
-#score rendering routines
-
 import pygame
 from pygame.locals import *
+<<<<<<< HEAD
 import game, gfx, math
 <<<<<<< HEAD
 from random import randint
@@ -23,11 +22,15 @@ def load_game_resources():
 =======
 from pygame.font import Font
 >>>>>>> parent of bf8521a (translate finish)
+=======
+import game, gfx, math, txt
+from pygame.font import Font
+>>>>>>> bf8521a5af4ffe589903bbe11c20d1be3410706c
 
 def render(score):
-    imgs = []
-
+    #0일땐 출력하지 않게 함
     if score <= 0:
+<<<<<<< HEAD
 <<<<<<< HEAD
         out = pygame.Surface(img_1.get_size()).convert()
         out.set_colorkey(0, RLEACCEL)
@@ -72,12 +75,28 @@ def render(score):
     # '[숫자]단계' 형식으로 텍스트 생성
     level_text = f"Stage {score}"
 >>>>>>> parent of bf8521a (translate finish)
+=======
+        # 기존 코드와 동일한 크기의 빈 Surface 생성
+        empty_surface = pygame.Surface((30, 36))  # 크기는 적절히 조정 가능
+        empty_surface.set_colorkey(0, RLEACCEL)
+        return empty_surface
     
-    out = pygame.Surface((width, img_1.get_height())).convert()
-    pos = 0
-    for i in imgs:
-        out.blit(i, (pos, 0))
-        pos += i.get_width()
+    # 한글 폰트 사용
+    font = Font(txt.font_path, 20)  #--- 단계 폰트를 36에서 20로 변경 ---
+>>>>>>> bf8521a5af4ffe589903bbe11c20d1be3410706c
+    
 
-    out.set_colorkey(0, RLEACCEL)
-    return out
+    # '[숫자]단계' 형식으로 텍스트 생성
+    level_text = f"단계 {score}"
+    
+    # 흰색으로 텍스트 렌더링
+    text_surface = font.render(level_text, True, (255, 255, 255))
+    
+    # 투명한 배경을 위한 설정
+    text_surface.set_colorkey(0, RLEACCEL)
+    
+    return text_surface
+
+# 게임 리소스 로드 함수는 더 이상 필요없으므로 비워둡니다
+def load_game_resources():
+    pass
