@@ -108,8 +108,15 @@ This powerup explodes one of the Guardians.
 -
 The enemy will remain dead until the end of the level.""",
 
-}
+"Fast Bullets": """Fast Bullets Power Up
+    When you collect this powerup, all your bullets will temporarily move at double speed.
+    -
+    This is perfect for dealing with multiple enemies quickly!
+    -
+    The effect will gradually wear off before returning to normal speed.""",
 
+}
+#게임 help 메시지 추가
 
 
 QuickHelp = {
@@ -123,6 +130,7 @@ QuickHelp = {
 "Bullet Time":"Slow Motion Effect",
 "Extra Life":"Extra Life",
 "Combustion":"Destroys One Guardian",
+"FastBullet": "Your bullets now move faster!",
 }
 
 
