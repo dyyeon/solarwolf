@@ -204,7 +204,7 @@ class FastBullet(PowerupEffect):
         if not self.ending and self.time >= 120.0:
             self.ending = 1
             for shot in self.state.shotobjs:
-                shot.set_speed_multiplier(2.0)  # 속도를 조금만 느리게
+                shot.set_speed_multiplier(1.5)  # 속도를 조금만 느리게
 
     def end(self):
         for shot in self.state.shotobjs:
