@@ -202,10 +202,12 @@ class GamePlay:
     def draw_ult_cooldown(self):
         # Example: Draw text indicating cooldown status
         font = pygame.font.Font(None, 15)
-        if self.player.ult_ready:
+        remaining_time = max(0, (self.player.ult_cooldown - (pygame.time.get_ticks() - self.player.ult_last_used)) // 1000)
+        
+        if remaining_time == 0:
+            self.player.ult_ready = True
             text = font.render("ULT Ready", True, (0, 255, 0))
         else:
-            remaining_time = max(0, (self.player.ult_cooldown - (pygame.time.get_ticks() - self.player.ult_last_used)) // 1000)
             text = font.render(f"ULT Cooldown: {remaining_time}s", True, (255, 0, 0))
 
         # Calculate position for bottom-right corner with additional left offset
