@@ -36,7 +36,7 @@ class MenuItem:
 menu = [
     MenuItem('start', gamestart.preGameStart),
     MenuItem('news', gamenews.GameNews),
-    MenuItem('creds', gamecreds.GameCreds),
+    MenuItem('creds', gamecreds.GalagaGame),
     MenuItem('setup', gamepref.GamePref),
     MenuItem('quit', None),
 ]
