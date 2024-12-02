@@ -19,4 +19,11 @@
 (menu_creds_on.png, menu_news_on.png, menu_quit_on.png, menu_setup_on.png, menu_start_on.png,/ ..._off.png/ ship-big.png) -> 새로 만든 png
 (gamemenu.py/ gamepref.py/ gamestart.py/ gamewin.py/ txt.py/ gamecreds.py/ gamenews.py/ score.py) -> 한글 번역, 한글 폰트 크기 수정
 (NanumGothic-Bold.ttf) -> 한글 폰트 추가
+
+-디버프 아이템 추가
+FastBullet이란 아이템을 추가해서 먹으면 속도가 4배 빨라지고 원래대로 돌아오도록 하였습니다.
+help문구도 추가했습니다.
+(objpowerup.py) FastBullet 아이템 추가 
+(objshot.py) 총알 속도 조정하기위한 수정
+(gamehelp.py) help문구 추가
  
