@@ -1,7 +1,7 @@
 <수정사항>
 
 -플레이어 정지
-게임 플레이 중 s키를 눌러 우주선을 정지시키는 기능 추가했습니다.
+게임 플레이 중 30초마다 s키를 눌러 화면 내의 모든 총알을 삭제하는 궁극기 추가했습니다.
 (gameplay.py/input.py/objship.py)
 
 -게임중 라운드 표시
@@ -26,4 +26,8 @@ help문구도 추가했습니다.
 (objpowerup.py) FastBullet 아이템 추가 
 (objshot.py) 총알 속도 조정하기위한 수정
 (gamehelp.py) help문구 추가
+
+-미니게임
+cred자리에 추후에 보너스 스테이지로 이용할 갤러그 형태의 미니게임을 추가했습니다.
+(gamecreds.py)
  
