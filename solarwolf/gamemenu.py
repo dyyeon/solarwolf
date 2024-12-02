@@ -46,7 +46,7 @@ menu = [
 def load_game_resources():
     global menu, images, boximages, fame
     images = []
-    pos = [15, 380] #[100, 420] -> [20, 380]
+    pos = [15, 380] #[20, 380]
     odd = 0
     for m in menu:
         m.init(pos)
