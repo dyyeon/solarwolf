@@ -210,7 +210,7 @@ class GalagaGame:
             self.update_player_position(event)
 
     def abort(self):
-        snd.play('explode')
+        snd.play('delete')
         self.done = True
         game.handler = self.prevhandler
 
