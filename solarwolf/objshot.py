@@ -81,11 +81,27 @@ class Shot:
         gfx.dirty2(r, self.lastrect)
         self.lastrect = r
 
-    def tick(self, speedadjust=1.0):
+    def tick(self, speedadjust=1.0, player_ship=None):
         self.frame += speedadjust * 0.5
-        # 속도 배수를 이동 속도에 적용
-        self.pos[0] += self.move[0] * speedadjust * self.speed_multiplier
-        self.pos[1] += self.move[1] * speedadjust * self.speed_multiplier
+        if player_ship:
+            player_pos = player_ship.pos
+            # 발사체와 플레이어 간의 상대 위치 계산
+            dx = player_pos[0] - self.pos[0]
+            dy = player_pos[1] - self.pos[1]
+            distance = math.sqrt(dx**2 + dy**2)
+            if distance != 0:
+                # 상대 위치를 기반으로 방향 계산
+                self.move = (
+                    (dx / distance) * speedadjust,
+                    (dy / distance) * speedadjust
+                )
+
+        # 위치 업데이트
+        self.pos = (
+            self.pos[0] + self.move[0] * speedadjust,
+            self.pos[1] + self.move[1] * speedadjust
+        )
+        
         self.time += speedadjust * 0.1
         self.images = images[int(math.cos(self.time) * self.numbrights)]
         self.rect.topleft = self.pos
