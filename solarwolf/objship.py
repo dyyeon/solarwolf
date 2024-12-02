@@ -2,7 +2,7 @@
 
 import pygame
 from pygame.locals import *
-import game, gfx
+import game, gfx, snd, objpopshot
 
 upimage = None
 shieldbg = None
@@ -50,6 +50,9 @@ class Ship:
         self.pos = list(self.rect.topleft)
         self.shield = 0
         self.bullet = 0
+        self.ult_cooldown = 30000
+        self.ult_last_used = 0
+        self.ult_ready = True
 
     def start(self, pos):
         self.rect.topleft = pos
@@ -135,5 +138,15 @@ class Ship:
             onoff = not onoff
         self.turbo = onoff
 
-    def cmd_stop(self):
-        self.move = [0, 0]
+    def cmd_ult(self):
+        current_time = pygame.time.get_ticks()
+        if self.ult_ready:
+            snd.play('chimeout')  # Play a sound effect for the ultimate ability
+            state = game.handler
+            for s in state.shotobjs:
+                s.dead = 1
+                state.popobjs.append(objpopshot.PopShot(s.rect.center))
+            self.ult_ready = False
+            self.ult_last_used = current_time
+        if not self.ult_ready and current_time - self.ult_last_used >= self.ult_cooldown:
+            self.ult_ready = True

@@ -65,6 +65,8 @@ class GamePlay:
 
         self.bgfill = gfx.surface.fill
 
+        self.prev_text_rect = None
+
 
     def starting(self):
         if self.startmusic:
@@ -112,8 +114,8 @@ class GamePlay:
                 self.player.cmd_right()
             elif i.translated == input.PRESS:
                 self.player.cmd_turbo(1)
-            elif i.translated == input.STOP:
-                self.player.cmd_stop()
+            elif i.translated == input.ULT:
+                self.player.cmd_ult()
 
 
     def event(self, e):
@@ -162,6 +164,8 @@ class GamePlay:
     def runobjects(self, objects):
         G, B, S = gfx, self.background, self.speedadjust
         gfx.updatestars(B, G)
+        self.draw_ult_cooldown()
+        
 
 
         for effect in self.powereffects[:]:
@@ -194,6 +198,31 @@ class GamePlay:
 
 
         self.hud.draw()
+
+    def draw_ult_cooldown(self):
+        # Example: Draw text indicating cooldown status
+        font = pygame.font.Font(None, 15)
+        remaining_time = max(0, (self.player.ult_cooldown - (pygame.time.get_ticks() - self.player.ult_last_used)) // 1000)
+        
+        if remaining_time == 0:
+            self.player.ult_ready = True
+            text = font.render("ULT Ready", True, (0, 255, 0))
+        else:
+            text = font.render(f"ULT Cooldown: {remaining_time}s", True, (255, 0, 0))
+
+        # Calculate position for bottom-right corner with additional left offset
+        screen_width, screen_height = gfx.surface.get_size()
+        left_offset = 100  # Adjust this value to move the text further left
+        text_position = (screen_width - text.get_width() - left_offset, screen_height - text.get_height() - 10)
+
+        # Erase the previous text
+        if self.prev_text_rect:
+            gfx.surface.fill((0, 0, 0), self.prev_text_rect)  # Assuming black background
+            gfx.dirty(self.prev_text_rect)
+
+        # Draw the new text
+        self.prev_text_rect = gfx.surface.blit(text, text_position)
+        gfx.dirty(self.prev_text_rect)
 
     def background(self, area):
         return self.bgfill(0, area)
